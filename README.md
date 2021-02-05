@@ -4,7 +4,7 @@ CorrTest
 ddBD estimates parameters for birth-death model (i.e., birth rate, death rate, and sampling fraction) for dating analysis.  
 
 Introduction
-============
+------------------- 
 
 `ddBD(tr, outgroup, root.time = 1)`
 
@@ -29,11 +29,12 @@ Directory Structure
 "empirical-data" directory contains the empirical data, estimated birth-death parameter values and MCMCTree results. 
 
 
-If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@temple.edu).
+If you have more questions, please email qiqing.tao@temple.edu.
 
 
 Citation
-============
+------------------- 
+
 If you use CorrTest from R, please cite:
 Tao Q, Barba-Montoya J, and Kumar S. 2021. Data-driven speciation tree prior for better species divergence times in calibration-poor molecular phylogenies. ECCB 2021. (submitted)
 
