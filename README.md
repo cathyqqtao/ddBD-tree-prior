@@ -1,2 +1,41 @@
-# ddBD-tree-prior
- Estimate parameters for birth-death speciation model from molcular phylogenies
+CorrTest
+==============
+
+ddBD estimates parameters for birth-death model (i.e., birth rate, death rate, and sampling fraction) for dating analysis.  
+
+Introduction
+============
+
+`ddBD(tr, outgroup, root.time = 1)`
+
+  `tr` is an object of class "phylo" specifying the relative times from RelTime. 
+	
+  `outgroup` is a vector of character specifying all outgroup tips
+  
+  `root.time` is the age of root in the current time unit. The default value is 1. 
+	
+Users need to provide a relative timetree inferred by RelTime without any calibrations in order to run `ddBD`. To get the relative timetree, one can use MEGA X (https://www.megasoftware.net).  
+
+This program will produce the parameters for birth-death model (i.e., birth rate, death rate, and sampling fraction). All three parameters are automatically estimated simultaneously. The program that only estimates birth rate and death rate with a user-specified sampling fraction rate will come soon. Currently, the estimated parameters can only be directly used in MCMCTree for dating analysis. 
+
+
+Directory Structure
+------------------- 
+
+"code" directory contains `ddBD` R function.
+
+"simulation" directory contains all simulated data, estimated birth-death parameter values and MCMCTree results. 
+
+"empirical-data" directory contains the empirical data, estimated birth-death parameter values and MCMCTree results. 
+
+
+If you have more questions, please email cathyqqtao@gmail.com (or qiqing.tao@temple.edu).
+
+
+Citation
+============
+If you use CorrTest from R, please cite:
+Tao Q, Barba-Montoya J, and Kumar S. 2021. Data-driven speciation tree prior for better species divergence times in calibration-poor molecular phylogenies. ECCB 2021. (submitted)
+
+If you use RelTime from MEGA X, please also cite:
+Kumar S, Stecher G, Li M, Knyaz C, and Tamura K. 2018. MEGA X: Molecular Evolutionary Genetics Analysis across Computing Platforms. Mol. Biol. Evol. 35:1547-1549.
