@@ -1,4 +1,4 @@
-CorrTest
+Data-driven Birth-Death (ddBD) model
 ==============
 
 ddBD estimates parameters for birth-death model (i.e., birth rate, death rate, and sampling fraction) for dating analysis.  
@@ -24,7 +24,7 @@ Directory Structure
 
 "code" directory contains `ddBD` R function.
 
-"simulation" directory contains all simulated data, estimated birth-death parameter values and MCMCTree results. 
+"simulation" directory contains all simulated data, estimated birth-death parameter values and MCMCTree results obtained using the true (BD_10_5_0.99), defult flat (BD_2_2_0.1), and inferred (BD_inf) tree prior. 
 
 "empirical-data" directory contains the empirical data, estimated birth-death parameter values and MCMCTree results. 
 
