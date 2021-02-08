@@ -1,4 +1,4 @@
-Data-driven Birth-Death (ddBD) model
+Data-driven Birth-Death (ddBD) tree prior
 ==============
 
 ddBD estimates parameters for birth-death model (i.e., birth rate, death rate, and sampling fraction) for dating analysis.  
