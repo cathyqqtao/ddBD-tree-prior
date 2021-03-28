@@ -18,7 +18,9 @@ To run `ddBD` using the example data, please install the program follow above st
 	t.rt = read.tree("dosReis_Mammals274_RelTime_relTimes.nwk")
 	out.tip = c("Ornithorhynchus_anatinus", "Zaglossus_bruijni", "Tachyglossus_aculeatus")
 	
-	BDpara(t.rt, out.tip, root.time = 1.85)
+	ddBD(t.rt, out.tip, root.time = 1.85, measure = "SSE")
+
+Please note that the program currently works well with R version 3.6.x. R version 4.0.x gives an error. I will fix it soon.
 
 If you have more questions, please email qiqing.tao@temple.edu.
 

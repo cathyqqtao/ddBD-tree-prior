@@ -1,6 +1,7 @@
 ############ PLEASE RUN THE FOLLOWING CODE ################
 library("ape")
 library("stats4")
+library("FNN")
 
 LL.BD = function(tt, lambda, mu, rho){
   t1 = 1
@@ -28,7 +29,7 @@ BD.density = function(t, birth.rate, death.rate, rho, root.age=1){
 }
 
 
-ddBD = function(tr, outgroup, root.time = 1){
+ddBD = function(tr, outgroup, root.time = 1, measure = c("SSE","KL")){
   b.rate.try = seq(1,10,1)+0.1
   d.rate.try = seq(1,10,1)
   s.fr.try = c(0.001,0.01,0.1,0.5,0.9)
@@ -45,32 +46,43 @@ ddBD = function(tr, outgroup, root.time = 1){
   t.den.y.2 = t.den.y[t.den.x>=0 & t.den.x<=1]
   
   err = numeric()
+  kl.dist = numeric()
   
   for (i in 1:nrow(paras.try)){
     bd.density = BD.density(t = t.den.x.2, birth.rate = paras.try[i,1], death.rate = paras.try[i,2], rho = paras.try[i,3], root.age = 1)
     
     err = c(err, sqrt(sum((t.den.y.2-bd.density)^2)))
+    kl.dist = c(kl.dist, mean(FNN::KL.divergence(t.den.y.2, bd.density, k=5)))
   }
   
   err.sort = sort(err)
+  kl.sort = sort(kl.dist)
   attempt = 0
   inf.paras = NULL
   
   while (is.null(inf.paras) && attempt <= 10){
     attempt = attempt + 1
-    paras.start = paras.try[match(err.sort[attempt], err), ]
-    names(paras.start) = c("lambda", "mu", "rho")
     
+    if (measure == "KL"){
+      paras.start = paras.try[match(kl.sort[attempt], kl.dist), ]
+    }else{
+      paras.start = paras.try[match(err.sort[attempt], err), ]	
+	}
+
+    names(paras.start) = c("lambda", "mu", "rho")
     inf.paras = tryCatch(stats4::mle(LL.BD, start = list(lambda = as.numeric(paras.start[1]), mu = as.numeric(paras.start[2]), rho = as.numeric(paras.start[3])),
-                            fixed = list(tt = t), method = "L-BFGS-B", lower = c(0, 0, 0), upper = c(Inf, Inf, 1)), error=function(e){})
+                                     fixed = list(tt = t), method = "L-BFGS-B", lower = c(0, 0, 0), upper = c(Inf, Inf, 1)), error=function(e){})
   }
   
   if (attempt >= 10){
     return("Sorry, the best parameter setting cannot be found.")
   }else{
     output = c(inf.paras@coef[1:2]/root.time, inf.paras@coef[3])
+    
     return(output)
   }
   
 }
+
+
 

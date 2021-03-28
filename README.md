@@ -6,17 +6,21 @@ ddBD estimates parameters for birth-death model (i.e., birth rate, death rate, a
 Introduction
 ------------------- 
 
-`ddBD(tr, outgroup, root.time = 1)`
+`ddBD(tr, outgroup, root.time = 1£, measure = c("SSE", "KL"))`
 
   `tr` is an object of class "phylo" specifying the relative times from RelTime. 
 	
   `outgroup` is a vector of character specifying all outgroup tips
   
   `root.time` is the age of root in the current time unit. The default value is 1. 
-	
+  
+   `measure` is the method for selecting the initial values in grid search. The best initial values can be selected by minimzing the sum of squared errors (SSE) or Kullback-Leibler divergence (KL). The  default is method is SSE.
+ 	
 Users need to provide a relative timetree inferred by RelTime without any calibrations in order to run `ddBD`. To get the relative timetree, one can use MEGA X (https://www.megasoftware.net).  
 
-This program will produce the parameters for birth-death model (i.e., birth rate, death rate, and sampling fraction). All three parameters are automatically estimated simultaneously. The program that only estimates birth rate and death rate with a user-specified sampling fraction rate will come soon. Currently, the estimated parameters can only be directly used in MCMCTree for dating analysis. 
+This program will produce the parameters for birth-death model (i.e., birth rate, death rate, and sampling fraction). All three parameters are automatically estimated simultaneously. The program that only estimates birth rate and death rate with a user-specified sampling fraction rate will come soon. Currently, the estimated parameters can only be directly used in MCMCTree for dating analysis.
+
+Note that the program currently works well with R version 3.6.x. R version 4.0.x gives an error. I will fix it soon.
 
 
 Directory Structure
