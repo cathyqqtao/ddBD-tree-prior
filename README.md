@@ -6,7 +6,7 @@ ddBD estimates parameters for birth-death model (i.e., birth rate, death rate, a
 Introduction
 ------------------- 
 
-`ddBD(tr, outgroup, root.time = 1£, measure = c("SSE", "KL"))`
+`ddBD(tr, outgroup, root.time = 1, measure = c("SSE", "KL"))`
 
   `tr` is an object of class "phylo" specifying the relative times from RelTime. 
 	
