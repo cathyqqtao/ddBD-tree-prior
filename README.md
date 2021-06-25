@@ -28,7 +28,7 @@ Directory Structure
 
 "code" directory contains `ddBD` R function.
 
-"simulation" directory contains all simulated data, estimated birth-death parameter values and MCMCTree results obtained using the true (BD_10_5_0.99), defult flat (BD_2_2_0.1), and inferred (BD_inf) tree prior. 
+"simulation" directory contains all simulated data, estimated birth-death parameter values and MCMCTree results obtained using the true (BD_10_5_0.99), default flat (BD_2_2_0.1), and inferred (BD_inf) tree prior. 
 
 "empirical-data" directory contains the empirical data, estimated birth-death parameter values and MCMCTree results. 
 
@@ -39,8 +39,8 @@ If you have more questions, please email qiqing.tao@temple.edu.
 Citation
 ------------------- 
 
-If you use CorrTest from R, please cite:
-Tao Q, Barba-Montoya J, and Kumar S. 2021. Data-driven speciation tree prior for better species divergence times in calibration-poor molecular phylogenies. ECCB 2021. (submitted)
+If you use ddBD, please cite:
+Tao Q, Barba-Montoya J, and Kumar S. 2021. Data-driven speciation tree prior for better species divergence times in calibration-poor molecular phylogenies. bioRxiv. doi:10.1101/2021.03.27.437326. (In press by Bioinformatics)
 
 If you use RelTime from MEGA X, please also cite:
 Kumar S, Stecher G, Li M, Knyaz C, and Tamura K. 2018. MEGA X: Molecular Evolutionary Genetics Analysis across Computing Platforms. Mol. Biol. Evol. 35:1547-1549.
